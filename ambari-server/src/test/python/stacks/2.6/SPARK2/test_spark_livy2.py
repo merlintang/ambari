@@ -53,7 +53,7 @@ class TestSparkClient(RMFTestCase):
                                   create_parents = True,
                                   mode = 0775
                                   )
-        self.assertResourceCalled('HdfsResource', '/user/livy2',
+        self.assertResourceCalled('HdfsResource', '/user/livy',
                                   immutable_paths = self.DEFAULT_IMMUTABLE_PATHS,
                                   security_enabled = False,
                                   hadoop_bin_dir = '/usr/hdp/current/hadoop-client/bin',
@@ -93,7 +93,7 @@ class TestSparkClient(RMFTestCase):
         self.assertResourceCalled('PropertiesFile', '/usr/hdp/current/livy2-server/conf/livy.conf',
                                   owner = 'livy',
                                   key_value_delimiter = ' ',
-                                  group = 'hadoop',
+                                  group = 'livy',
                                   properties = self.getConfig()['configurations']['livy2-conf'],
                                   )
         self.assertResourceCalled('File', '/usr/hdp/current/livy2-server/conf/log4j.properties',
